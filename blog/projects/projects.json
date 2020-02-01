@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Chef's Menu",
+        "description": "A brief description of the app",
+        "githubLink": "https://github.com/smithpg/chefs-menu",
+        "demoLink": "https://chefs-menu.herokuapp.com"
+    },
+    {
+        "title": "Nanowrimo Text Editor",
+        "description": "A brief description of the app",
+        "githubLink": "https://github.com/smithpg/Nanowrimo-Editor-and-Progress-Tracker",
+        "demoLink": "https://nanowrimo-editor.netlify.com/"
+    }
+]

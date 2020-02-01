@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import { accent } from 'constants/theme';
 
+import "typeface-open-sans";
+
 export default createGlobalStyle`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -15,6 +17,7 @@ export default createGlobalStyle`
   figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0;
@@ -34,7 +37,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: "Open Sans";
     line-height: 1;
     font-size: 1.6rem;
     color: #000;
