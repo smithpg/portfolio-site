@@ -1,21 +1,28 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import posed, { PoseGroup } from 'react-pose';
-import { timeout } from 'constants/transition';
+import { timeout, animationDuration } from 'constants/transition';
 
 class Transition extends PureComponent {
   render() {
     const { children, location } = this.props;
 
     const RoutesContainer = posed.div({
-      enter: { opacity: 1, delay: timeout, delayChildren: timeout },
-      exit: { opacity: 0 },
+      enter: {
+        opacity: 1,
+        transition: { duration: animationDuration },
+        delay: timeout,
+        delayChildren: timeout,
+      },
+
+      exit: {
+        opacity: 0,
+        transition: { duration: animationDuration / 10 },
+      },
     });
 
-    // To enable page transitions on mount / initial load,
-    // use the prop `animateOnMount={true}` on `PoseGroup`.
     return (
-      <PoseGroup>
+      <PoseGroup animateOnMount={true}>
         <RoutesContainer key={location.pathname}>{children}</RoutesContainer>
       </PoseGroup>
     );

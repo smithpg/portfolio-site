@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { accent } from 'constants/theme';
 
-import "typeface-open-sans";
+import 'typeface-open-sans';
 
 export default createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -18,11 +18,8 @@ export default createGlobalStyle`
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
 
@@ -38,7 +35,7 @@ export default createGlobalStyle`
 
   body {
     font-family: "Open Sans";
-    line-height: 1;
+    line-height: 1.5;
     font-size: 1.6rem;
     color: #000;
     background-color: #fff;

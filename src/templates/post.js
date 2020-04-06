@@ -1,24 +1,33 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import Layout from 'components/layout';
+import Box from 'components/box';
 
 export default function Post({ data }) {
-  return (
-    <div>
-      {JSON.stringify(data)}
+  const {
+    html,
+    frontmatter: { title },
+  } = data.markdownRemark;
 
-      {/* <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} /> */}
-    </div>
+  return (
+    <Layout>
+      <Box>
+        <Link to="/">← Return to Home</Link>
+      </Box>
+      <Box>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </Box>
+    </Layout>
   );
 }
 
 export const query = graphql`
-  query($title: String!) {
-    postsJson(title: { eq: $title }) {
-      content {
-        childMarkdownRemark {
-          html
-        }
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
       }
     }
   }

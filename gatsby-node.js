@@ -1,5 +1,6 @@
 const path = require('path');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateWebpackConfig = ({
   stage,
@@ -20,26 +21,43 @@ exports.onCreateWebpackConfig = ({
   });
 };
 
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `blog/posts` });
+
+    console.log(slug);
+
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
+  }
+};
+
 exports.createPages = async function({ graphql, actions }) {
   const { data } = await graphql(`
-    {
-      allPostsJson {
+    query {
+      allMarkdownRemark {
         edges {
           node {
-            title
+            fields {
+              slug
+            }
           }
         }
       }
     }
   `);
 
-  data.allPostsJson.edges.forEach(({node}) => {
+  data.allMarkdownRemark.edges.forEach(({ node }) => {
     console.log(JSON.stringify(node));
     actions.createPage({
-      path: node.title,
+      path: node.fields.slug,
       component: path.resolve('./src/templates/post.js'),
       context: {
-        title: node.title,
+        slug: node.fields.slug,
       },
     });
   });

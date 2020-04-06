@@ -3,12 +3,14 @@
         "title": "Chef's Menu",
         "description": "A brief description of the app",
         "githubLink": "https://github.com/smithpg/chefs-menu",
-        "demoLink": "https://chefs-menu.herokuapp.com"
+        "demoLink": "https://chefs-menu.herokuapp.com",
+        "techUsed": ["React", "MongoDB", "CSS3", "Stripe", "Heroku"]
     },
     {
         "title": "Nanowrimo Text Editor",
         "description": "A brief description of the app",
         "githubLink": "https://github.com/smithpg/Nanowrimo-Editor-and-Progress-Tracker",
-        "demoLink": "https://nanowrimo-editor.netlify.com/"
+        "demoLink": "https://nanowrimo-editor.netlify.com/",
+        "techUsed": ["React", "CSS3"]
     }
 ]
