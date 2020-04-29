@@ -1,93 +1,18 @@
 ---
 
 title: Creating Smooth Page Transitions in Gatsby
-date: 2-10-2020
+date: 4-22-2020
 author: Patrick Smith
 
 ---
 
-This blog is based on the gatsby starter *gatsby-universal*, which 
+Two problems stand in my way: 1. creating pleasing transition animations, 2. solving the infamous scrollToTop problem. 
 
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
+## Animation 
 
-##alsdfj;alskdjfs blog is based on the gatsby starter *gatsby-universal*, which 
 
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
+## Scrolling Problem
 
-##alsdfj;alskdjfs blog is based on the gatsby starter *gatsby-universal*, which 
+### Lay of the Land
 
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-
-##alsdfj;alskdjfs blog is based on the gatsby starter *gatsby-universal*, which 
-
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-lerem asl;dkfj asdf
-
-##alsdfj;alskdjf
+Gatsby uses 

@@ -13,13 +13,19 @@ export const wrapPageElement = wrapPageElementWithTransition;
 
 // Prevent unsightly scroll to top on exit transitions
 export const shouldUpdateScroll = ({
+  pathname,
   routerProps: { location },
   getSavedScrollPosition,
 }) => {
-  window.setTimeout(performTransition, timeout);
+  function performTransition() {
+    console.log(getSavedScrollPosition(pathname));
+    window.scrollTo(...(getSavedScrollPosition(location) || [0, 200]));
+  }
+
+  console.log(pathname);
+  console.log(location);
+  window.setTimeout(performTransition, timeout.milliseconds);
   return false;
 };
 
-function performTransition() {
-  window.scrollTo(0, 0);
-}
+// export const shouldUpdateScroll = () => false;

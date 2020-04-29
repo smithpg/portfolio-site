@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { accent } from 'constants/theme';
 
-import 'typeface-open-sans';
-
 export default createGlobalStyle`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -20,6 +18,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     border: 0;
+    margin: 0;
     vertical-align: baseline;
   }
 
@@ -29,16 +28,7 @@ export default createGlobalStyle`
     display: block;
   }
 
-  html {
-    font-size: 62.5%;
-  }
-
   body {
-    font-family: "Open Sans";
-    line-height: 1.5;
-    font-size: 1.6rem;
-    color: #000;
-    background-color: #fff;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -67,9 +57,6 @@ export default createGlobalStyle`
     border-spacing: 0;
   }
 
-  a {
-    color: ${accent};
-  }
 
   pre {
     display: block;
@@ -86,9 +73,5 @@ export default createGlobalStyle`
 
   video {
     max-width: 100%;
-  }
-
-  p {
-    margin-bottom: 2rem;
   }
 `;

@@ -1,14 +1,14 @@
 [
     {
         "title": "Chef's Menu",
-        "description": "A brief description of the app",
+        "description": "A marketplace platform for matching area chefs with users in search of a unique culinary experience: watching a gourmet meal be prepared in your own kitchen! It works like this. Chef users join the platform and provide information like where they are located, how far they are willing to travel, and what meals they can prepare. Customer users log on to the platform to search for chefs by location and cuisine, inspect their menus, and make in-home cooking appointments.",
         "githubLink": "https://github.com/smithpg/chefs-menu",
         "demoLink": "https://chefs-menu.herokuapp.com",
         "techUsed": ["React", "MongoDB", "CSS3", "Stripe", "Heroku"]
     },
     {
         "title": "Nanowrimo Text Editor",
-        "description": "A brief description of the app",
+        "description": "",
         "githubLink": "https://github.com/smithpg/Nanowrimo-Editor-and-Progress-Tracker",
         "demoLink": "https://nanowrimo-editor.netlify.com/",
         "techUsed": ["React", "CSS3"]
