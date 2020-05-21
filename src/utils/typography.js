@@ -1,10 +1,10 @@
 import Typography from 'typography';
-import judahTheme from 'typography-theme-judah';
+import fairyGatesTheme from 'typography-theme-fairy-gates';
 
 // We want bigger headings than the default
-judahTheme.scaleRatio = 3;
+// fairyGatesTheme.scaleRatio = 2;
 
-const typography = new Typography(judahTheme);
+const typography = new Typography(fairyGatesTheme);
 
 // Export helper functions
 export const { scale, rhythm, options } = typography;
