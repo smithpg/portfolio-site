@@ -30,7 +30,7 @@ export default {
     },
   },
   container: {
-    maxWidth: [500, 700, 900],
+    maxWidth: [500, 500, 900],
     px: [3, 3, 2],
     position: 'relative',
     variants: {
@@ -42,7 +42,7 @@ export default {
 
   styles: {
     h1: {
-      mb: [3, 3, 5],
+      mb: [3],
       fontSize: [5, 6, 7],
     },
 
@@ -53,5 +53,7 @@ export default {
     },
 
     p: { fontSize: [1, 2, 3] },
+    ul: { p: 1, mx: 0 },
+    li: { p: 1, display: 'block' },
   },
 };

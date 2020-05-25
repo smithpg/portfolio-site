@@ -1,83 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
 
-import useBoundingRect from 'hooks/useBoundingRect';
-import Floater from 'components/floater';
+import BackgroundSVG from 'components/backgroundSVG';
+import BlogPostsContainer from 'components/blog-posts-container';
 import { skillIcons } from 'components/skillIcons';
 import Layout from 'components/layout';
-import Navbar from 'components/navbar';
+import Headshot from 'components/headshot';
 
 /** @jsx jsx */
 import { Container, Box, Card, Button, Flex, jsx, Styled } from 'theme-ui';
 
-console.log(skillIcons);
-
 const Index = ({ data }) => {
-  const [ref, boundingRect] = useBoundingRect();
-
-  console.log(boundingRect);
+  const blogPosts = data.allMarkdownRemark.edges.map(e => e.node);
 
   return (
     <>
-      <Navbar links={['Home', 'About', 'Blog']} />
-      <Container sx={{ mt: [1, 2, 3] }}>
+      <BackgroundSVG />
+      <Layout>
         <Card
           sx={{
-            textAlign: 'center',
-            p: 5,
+            display: 'flex',
+            flexDirection: ['column', 'column', 'row'],
+            textAlign: ['center', 'center', 'left'],
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
             my: 5,
-            position: 'relative',
-            overflow: 'hidden',
-            perspective: 100,
+            py: 5,
           }}
-          ref={ref}
         >
-          {boundingRect &&
-            Object.entries(skillIcons).map(([iconName, Component]) => (
-              <Floater
-                key={iconName}
-                aria-label={iconName}
-                parentDimensions={boundingRect}
-              >
-                <Component />
-              </Floater>
-            ))}
-
-          <Styled.h1>{"Hi, I'm Patrick"}</Styled.h1>
-          <Styled.p sx={{}}>
-            {"I'm a fullstack developer with broad javascript experience"}
-          </Styled.p>
+          <Headshot />
+          <div>
+            <Styled.h1>{"Hi, I'm Patrick"}</Styled.h1>
+            <Styled.p sx={{ color: ['black', 'black', 'coral'] }}>
+              {"I'm a fullstack developer with broad javascript experience"}
+            </Styled.p>
+          </div>
         </Card>
-
-        <Card></Card>
-
-        <Box
-          sx={{
-            borderRadius: 5,
-          }}
-        >
-          <Styled.h2>What I do</Styled.h2>
-          <Styled.p>{lorem}</Styled.p>
+        <Box>
+          <Styled.h2>Blog Posts</Styled.h2>
+          <BlogPostsContainer posts={blogPosts} />
         </Box>
-        <Box
-          sx={{
-            borderRadius: 5,
-          }}
-        >
-          <Styled.h2>What I do</Styled.h2>
-          <Styled.p>{lorem}</Styled.p>
-        </Box>
-        <Box
-          sx={{
-            borderRadius: 5,
-          }}
-        >
-          <Styled.h2>What I do</Styled.h2>
-          <Styled.p>{lorem}</Styled.p>
-        </Box>
-      </Container>
+      </Layout>
     </>
   );
 };
