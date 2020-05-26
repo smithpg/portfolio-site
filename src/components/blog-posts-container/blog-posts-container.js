@@ -11,7 +11,7 @@ const BlogPostsContainer = ({ posts }) => {
   console.log(posts);
 
   return (
-    <Styled.ul sx={{ listStyle: 'none' }}>
+    <Styled.ul>
       {posts.map(post => {
         const {
           frontmatter: { title },

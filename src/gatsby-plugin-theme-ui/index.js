@@ -53,7 +53,7 @@ export default {
     },
 
     p: { fontSize: [1, 2, 3] },
-    ul: { p: 1, mx: 0 },
+    ul: { mx: 0 },
     li: { p: 1, display: 'block' },
   },
 };
