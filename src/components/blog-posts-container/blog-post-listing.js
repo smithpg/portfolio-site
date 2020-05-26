@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link } from 'components/link';
 import Img from 'gatsby-image';
 
 /** @jsx jsx */
@@ -18,6 +18,11 @@ const BlogPostListing = ({ title, slug }) => (
       borderRadius: 5,
       mb: 2,
       p: 3,
+      transition: '200ms transform',
+      ':hover': {
+        fontWeight: 'bold',
+        transform: 'translateY(-3px)',
+      },
     }}
   >
     <span>{title}</span>

@@ -3,6 +3,10 @@ import { graphql, Link } from 'gatsby';
 import Layout from 'components/layout';
 import Box from 'components/box';
 
+/*@jsx jsx */
+
+import { jsx } from 'theme-ui';
+
 export default function Post({ data }) {
   const {
     html,
@@ -11,9 +15,19 @@ export default function Post({ data }) {
 
   return (
     <Layout>
-      <Box>
-        <Link to="/">← Return to Home</Link>
-      </Box>
+      <Link
+        to="/"
+        sx={{
+          display: 'inline-block',
+          position: 'sticky',
+          left: 0,
+          top: 100,
+          color: 'white',
+          bg: 'accent',
+        }}
+      >
+        ← Return to Home
+      </Link>
       <Box>
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />

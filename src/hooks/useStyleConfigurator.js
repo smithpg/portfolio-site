@@ -76,6 +76,7 @@ export default function useStyleConfigurator(initialStyles) {
 
   // Attach style configurator to document
   const containerElement = useMemo(() => {
+    if (typeof document === undefined) return {};
     const containerElement = document.createElement('div');
     containerElement.id = `style-configurator-${generateId()}`;
 

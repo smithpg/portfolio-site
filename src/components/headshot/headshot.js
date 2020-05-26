@@ -4,8 +4,6 @@ import { Styled, jsx } from 'theme-ui';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import useStyleConfigurator from 'hooks/useStyleConfigurator';
-
 export default function Headshot() {
   const res = useStaticQuery(graphql`
     query HeadshotQuery {
@@ -28,10 +26,8 @@ export default function Headshot() {
     width: [150, 200],
     overflow: 'hidden',
   };
-  const configuratorBindings = useStyleConfigurator(containerStyle);
-
   return (
-    <Styled.div {...configuratorBindings}>
+    <Styled.div style={containerStyle}>
       <Img fluid={imgFluid} alt={'headshot'} />
     </Styled.div>
   );
