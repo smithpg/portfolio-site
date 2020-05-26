@@ -1,6 +1,7 @@
 import React from 'react';
-import Box from 'components/box';
 import Layout from 'components/layout';
+
+import { Box } from 'theme-ui';
 
 const NotFound = () => (
   <Layout>

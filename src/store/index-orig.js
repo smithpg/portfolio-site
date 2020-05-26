@@ -24,7 +24,6 @@
 //   DiMysql,
 //   DiHeroku,
 // } from 'react-icons/di';
-// import { AiOutlineLink as DemoIcon } from 'react-icons/ai';
 
 // const skillIcons = {
 //   JavaScript: DiJavascript,

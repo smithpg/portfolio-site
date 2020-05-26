@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import ProjectCard from './project-card';
 
 /** @jsx jsx */
-import { Container, Box, Card, Button, Flex, jsx, Styled } from 'theme-ui';
+import {
+  Container,
+  Box,
+  Grid,
+  Card,
+  Button,
+  Flex,
+  jsx,
+  Styled,
+} from 'theme-ui';
 
 const ProjectsContainer = () => {
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
+
   const data = useStaticQuery(graphql`
     query ProjectsQuery {
       allProjectsJson {
@@ -27,7 +38,6 @@ const ProjectsContainer = () => {
   `);
 
   let projects = data.allProjectsJson.edges.map(e => e.node);
-  projects = [...projects, ...projects];
 
   const containerStyles = {
     display: 'flex',
@@ -44,23 +54,51 @@ const ProjectsContainer = () => {
     },
   };
 
+  const isSelected = project => project.id === selectedProjectId;
+
   return (
-    <motion.ul sx={containerStyles}>
+    <Styled.ul
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gridGap: '15px',
+        position: 'relative',
+      }}
+    >
       {projects.map((project, i) => (
-        <motion.li
+        <ProjectCard
           key={i}
-          sx={{
-            zIndex: projects.length - i,
-            listStyle: 'none',
-            ml: i > 0 ? -30 : 0,
+          project={project}
+          isSelected={isSelected(project)}
+          onClick={e => {
+            if (selectedProjectId === project.id) {
+              setSelectedProjectId(null);
+            } else {
+              setSelectedProjectId(project.id);
+            }
           }}
-          whileHover={{ y: -10, zIndex: projects.length }}
-        >
-          <ProjectCard project={project} />
-        </motion.li>
+        />
       ))}
-    </motion.ul>
+    </Styled.ul>
   );
+
+  // return (
+  //   <motion.ul sx={containerStyles}>
+  //     {projects.map((project, i) => (
+  //       <motion.li
+  //         key={i}
+  //         sx={{
+  //           zIndex: projects.length - i,
+  //           listStyle: 'none',
+  //           ml: i > 0 ? -30 : 0,
+  //         }}
+  //         whileHover={{ y: -10, zIndex: projects.length }}
+  //       >
+  //         <ProjectCard project={project} />
+  //       </motion.li>
+  //     ))}
+  //   </motion.ul>
+  // );
 };
 
 export default ProjectsContainer;

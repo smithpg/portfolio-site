@@ -1,11 +1,12 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
+
+import Link from 'components/link';
 import Layout from 'components/layout';
-import Box from 'components/box';
 
 /*@jsx jsx */
 
-import { jsx } from 'theme-ui';
+import { jsx, Box } from 'theme-ui';
 
 export default function Post({ data }) {
   const {
@@ -19,17 +20,19 @@ export default function Post({ data }) {
         to="/"
         sx={{
           display: 'inline-block',
-          position: 'sticky',
-          left: 0,
-          top: 100,
+          position: 'fixed',
+          right: 10,
+          bottom: 10,
           color: 'white',
-          bg: 'accent',
+          bg: 'coral',
+          p: 2,
+          borderRadius: '5px',
+          zIndex: 99,
         }}
       >
         ← Return to Home
       </Link>
-      <Box>
-        <h1>{title}</h1>
+      <Box sx={{ maxWidth: 700, m: 'auto' }}>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </Box>
     </Layout>

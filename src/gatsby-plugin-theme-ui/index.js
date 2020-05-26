@@ -22,7 +22,7 @@ export default {
 
   cards: {
     primary: {
-      padding: 20,
+      padding: 25,
       bg: 'white',
       boxShadow:
         '10px -2px 30px rgba(0,0,0,0.1), 0px 0px 10px -10px rgba(0,0,0,0.15)',
@@ -35,7 +35,8 @@ export default {
     position: 'relative',
     variants: {
       fullWidth: {
-        maxWidth: '100vw',
+        width: '100vw',
+        bg: 'red',
       },
     },
   },
@@ -49,6 +50,12 @@ export default {
     h2: {
       mb: [2, 2, 4],
       fontSize: [4, 5, 6],
+      fontWeight: 'light',
+    },
+
+    h3: {
+      mb: [2, 2, 4],
+      fontSize: [3, 4, 5],
       fontWeight: 'light',
     },
 

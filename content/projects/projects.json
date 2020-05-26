@@ -8,9 +8,15 @@
     },
     {
         "title": "Nanowrimo Text Editor",
-        "description": "",
+        "description": "An web-based document editor that tracks word-count progress and rewards milestones with images for inspiration.",
         "githubLink": "https://github.com/smithpg/Nanowrimo-Editor-and-Progress-Tracker",
         "demoLink": "https://nanowrimo-editor.netlify.com/",
         "techUsed": ["React", "CSS3"]
+    },
+    {
+        "title": "FB Messenger Time Zone Extension",
+        "description": "A Chrome extension that allows the user to assign a time zone to the friends they message with. Once the friend is assigned a time zone, UI elements that display time will be updated to show both user and friend's times.",
+        "githubLink": "https://github.com/smithpg/messenger-timezone-extension",
+        "techUsed": ["React", "Chrome"]
     }
 ]

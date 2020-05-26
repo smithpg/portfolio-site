@@ -12,6 +12,7 @@ import {
   DiMongodb,
   DiMysql,
   DiHeroku,
+  DiChrome,
 } from 'react-icons/di';
 import { AiOutlineLink as DemoIcon } from 'react-icons/ai';
 
@@ -26,4 +27,5 @@ export const skillIcons = {
   mySQL: DiMysql,
   Stripe: FaStripe,
   Heroku: DiHeroku,
+  Chrome: DiChrome,
 };
