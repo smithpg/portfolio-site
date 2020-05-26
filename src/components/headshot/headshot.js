@@ -10,7 +10,7 @@ export default function Headshot() {
       allImageSharp(filter: { fluid: { src: { regex: "/salamander/" } } }) {
         edges {
           node {
-            fluid(cropFocus: SOUTHWEST) {
+            fluid {
               ...GatsbyImageSharpFluid_tracedSVG
             }
           }
@@ -27,7 +27,7 @@ export default function Headshot() {
     overflow: 'hidden',
   };
   return (
-    <Styled.div style={containerStyle}>
+    <Styled.div sx={containerStyle}>
       <Img fluid={imgFluid} alt={'headshot'} />
     </Styled.div>
   );

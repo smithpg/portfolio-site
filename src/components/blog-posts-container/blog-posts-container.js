@@ -1,14 +1,31 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 import BlogPostListing from './blog-post-listing';
 
 /** @jsx jsx */
-import { Container, Box, Card, Button, Flex, jsx, Styled } from 'theme-ui';
+import { jsx, Styled } from 'theme-ui';
 
-const BlogPostsContainer = ({ posts }) => {
-  console.log(posts);
+const BlogPostsContainer = () => {
+  const data = useStaticQuery(graphql`
+    query BlogPostsQuery {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              title
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const posts = data.allMarkdownRemark.edges.map(e => e.node);
 
   return (
     <Styled.ul>
@@ -25,32 +42,3 @@ const BlogPostsContainer = ({ posts }) => {
 };
 
 export default BlogPostsContainer;
-
-// export const query = graphql`
-//   query HomepageQuery {
-//     allProjectsJson {
-//       edges {
-//         node {
-//           id
-//           title
-//           description
-//           githubLink
-//           demoLink
-//           techUsed
-//         }
-//       }
-//     }
-//     allMarkdownRemark {
-//       edges {
-//         node {
-//           frontmatter {
-//             title
-//           }
-//           fields {
-//             slug
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;

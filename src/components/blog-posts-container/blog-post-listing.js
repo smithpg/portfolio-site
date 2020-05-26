@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'components/link';
+import Link from 'components/link';
 import Img from 'gatsby-image';
 
 /** @jsx jsx */
@@ -20,7 +20,7 @@ const BlogPostListing = ({ title, slug }) => (
       p: 3,
       transition: '200ms transform',
       ':hover': {
-        fontWeight: 'bold',
+        bg: 'muted',
         transform: 'translateY(-3px)',
       },
     }}
