@@ -203,7 +203,7 @@
 //       <Title as="h2" size="large">
 //         Blog
 //       </Title>
-//       {data.allMarkdownRemark.edges.map(({ node: post }) => (
+//       {data.allMdx.edges.map(({ node: post }) => (
 //         <PostContainer key={post.id}>
 //           <Link to={post.fields.slug}>
 //             <strong>{post.frontmatter.title}</strong>
@@ -234,7 +234,7 @@
 //         }
 //       }
 //     }
-//     allMarkdownRemark {
+//     allMdx {
 //       edges {
 //         node {
 //           frontmatter {

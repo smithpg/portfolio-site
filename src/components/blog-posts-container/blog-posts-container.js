@@ -10,7 +10,7 @@ import { jsx, Styled } from 'theme-ui';
 const BlogPostsContainer = () => {
   const data = useStaticQuery(graphql`
     query BlogPostsQuery {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             frontmatter {
@@ -25,7 +25,7 @@ const BlogPostsContainer = () => {
     }
   `);
 
-  const posts = data.allMarkdownRemark.edges.map(e => e.node);
+  const posts = data.allMdx.edges.map(e => e.node);
 
   return (
     <Styled.ul>

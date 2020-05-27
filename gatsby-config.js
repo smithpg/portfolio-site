@@ -22,7 +22,7 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
     `gatsby-transformer-json`,
-    `gatsby-transformer-remark`,
+    `gatsby-plugin-mdx`,
     `gatsby-plugin-eslint`,
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-sharp`,

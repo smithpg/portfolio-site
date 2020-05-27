@@ -11,7 +11,7 @@ const Index = ({ data }) => {
   return (
     <Layout>
       <Box>
-        {data.allMarkdownRemark.edges.map(({ node: post }) => (
+        {data.allMdx.edges.map(({ node: post }) => (
           <Card key={post.id}>
             <Link to={post.fields.slug}>
               <strong>{post.frontmatter.title}</strong>
@@ -31,7 +31,7 @@ export default Index;
 
 export const query = graphql`
   query BlogQuery {
-    allMarkdownRemark {
+    allMdx {
       edges {
         node {
           frontmatter {

@@ -19,6 +19,8 @@
     ]
   },
   "dependencies": {
+    "@mdx-js/mdx": "^1.6.4",
+    "@mdx-js/react": "^1.6.4",
     "@reach/dialog": "^0.2.0",
     "@reach/router": "^1.2.1",
     "@reach/visually-hidden": "^0.1.1",
@@ -26,6 +28,7 @@
     "framer-motion": "^1.10.3",
     "gatsby": "^2.3.26",
     "gatsby-image": "^2.0.39",
+    "gatsby-plugin-mdx": "^1.2.12",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-react-svg": "^2.1.2",
@@ -58,7 +61,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "babel-eslint": "^10.0.1",
-    "chrome-launcher": "^0.10.5",
+    "chrome-launcher": "^0.13.2",
     "core-js": "^2.6.2",
     "directory-named-webpack-plugin": "^4.0.0",
     "eslint": "^5.12.1",

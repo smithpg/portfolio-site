@@ -23,10 +23,9 @@ exports.onCreateWebpackConfig = ({
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `content/posts` });
 
-    console.log(slug);
+  if (node.internal.type === `Mdx`) {
+    const slug = createFilePath({ node, getNode, basePath: `content/posts` });
 
     createNodeField({
       node,
@@ -39,7 +38,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async function({ graphql, actions }) {
   const { data } = await graphql(`
     query {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             fields {
@@ -51,7 +50,7 @@ exports.createPages = async function({ graphql, actions }) {
     }
   `);
 
-  data.allMarkdownRemark.edges.forEach(({ node }) => {
+  data.allMdx.edges.forEach(({ node }) => {
     console.log(JSON.stringify(node));
     actions.createPage({
       path: node.fields.slug,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Link from 'components/link';
 import Layout from 'components/layout';
@@ -10,9 +11,9 @@ import { jsx, Box } from 'theme-ui';
 
 export default function Post({ data }) {
   const {
-    html,
+    body,
     frontmatter: { title },
-  } = data.markdownRemark;
+  } = data.mdx;
 
   return (
     <Layout>
@@ -33,7 +34,7 @@ export default function Post({ data }) {
         ← Return to Home
       </Link>
       <Box sx={{ maxWidth: 700, m: 'auto' }}>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <MDXRenderer>{body}</MDXRenderer>
       </Box>
     </Layout>
   );
@@ -41,10 +42,14 @@ export default function Post({ data }) {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
+      id
+      excerpt(pruneLength: 160)
+
       frontmatter {
         title
+        date(formatString: "MM DD, YYYY")
       }
     }
   }
