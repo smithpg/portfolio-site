@@ -20,9 +20,9 @@ export default function Navbar({ links, sx }) {
     >
       {links.map(link => (
         <Styled
-          key={link}
+          key={link.display}
           as={Link}
-          to={'/' + link}
+          to={'/' + link.path}
           sx={{
             mx: 1,
             p: [3, 10],
@@ -35,7 +35,7 @@ export default function Navbar({ links, sx }) {
             },
           }}
         >
-          {link}
+          {link.display}
         </Styled>
       ))}
     </Flex>

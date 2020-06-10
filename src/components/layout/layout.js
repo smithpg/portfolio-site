@@ -11,7 +11,13 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head />
-      <Navbar links={['Home', 'About', 'Blog']} />
+      <Navbar
+        links={[
+          { display: 'Home', path: '' },
+          { display: 'About', path: '/about' },
+          { display: 'Blog', path: 'blog' },
+        ]}
+      />
       <Container sx={{ mt: [1, 2, 3] }}>{children}</Container>
     </>
   );
