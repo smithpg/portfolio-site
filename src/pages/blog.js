@@ -5,11 +5,14 @@ import { graphql, Link } from 'gatsby';
 import Layout from 'components/layout';
 
 /** @jsx jsx */
-import { Box, Card, Button, jsx } from 'theme-ui';
+import { Box, Card, Button, jsx, Styled } from 'theme-ui';
 
 const Index = ({ data }) => {
   return (
     <Layout>
+      <Box>
+        <Styled.h2>All Posts</Styled.h2>
+      </Box>
       <Box>
         {data.allMdx.edges.map(({ node: post }) => (
           <Card key={post.id}>
