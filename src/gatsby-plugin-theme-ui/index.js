@@ -71,5 +71,8 @@ export default {
       whiteSpace: 'pre-wrap',
       minWidth: '500px',
     },
+    section: {
+      mb: [1, 2],
+    },
   },
 };

@@ -10,18 +10,6 @@ import Headshot from 'components/headshot';
 /** @jsx jsx */
 import { Container, Box, Card, Button, Flex, jsx, Styled } from 'theme-ui';
 
-const SectionTitle = ({ children }) => (
-  <Styled.h2
-    sx={{
-      textAlign: ['center', 'left', 'left'],
-      my: [5, 5, 5],
-      textTransform: ['uppercase', 'none', 'none'],
-    }}
-  >
-    {children}
-  </Styled.h2>
-);
-
 const Index = () => {
   return (
     <>
@@ -30,19 +18,21 @@ const Index = () => {
         <Card
           sx={{
             display: 'flex',
-            flexDirection: ['column', 'column', 'row'],
+            flexDirection: 'column',
             textAlign: ['center', 'center', 'left'],
             justifyContent: 'space-evenly',
             alignItems: 'center',
             my: 5,
-            py: 5,
+            py: 4,
           }}
         >
-          <Headshot />
           <div>
-            <Styled.h1>{"Hi, I'm Patrick"}</Styled.h1>
-            <Styled.p sx={{ color: ['black', 'black', 'coral'] }}>
-              {"I'm a fullstack developer with broad javascript experience"}
+            <Styled.h2 sx={{ my: 1 }}>{'About Me'}</Styled.h2>
+            <Styled.p>
+              {`I'm a recent graduate of Oregon Statue Universit's Computer Science program seeking front-end, back-end, or fullstack work.`}
+            </Styled.p>
+            <Styled.p>
+              {`Feel free to drop me a line at patrickgromersmith@gmail.com.`}
             </Styled.p>
           </div>
         </Card>
