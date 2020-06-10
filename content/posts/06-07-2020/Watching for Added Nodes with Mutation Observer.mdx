@@ -70,7 +70,9 @@ const observer = new MutationObserver(
 
         const nodeImLookingFor =  Array.from(
           addedNodes
-        ).flatMap(findAmongDescendants)[0];
+        ).flatMap(
+          node => findAmongDescendants(node, isTheNodeImLookingFor)
+        )[0];
         // ... do stuff
       }
     }
