@@ -5,13 +5,13 @@ author: Patrick Smith
 date: '2020-05-19T16:52:34.893Z'
 
 ---
-Earlier this week, I came across a slightly niche use case for MutationObserver that seemed like it might be worth sharing. First a quick refresher on the MutationObserver API. Let's look at a simple case of detecting an attribute change on a target node.
+Earlier this week, I came across a slightly niche situation while using MutationObserver that seemed like it might be worth sharing. First a quick refresher on the MutationObserver API. Let's look at a simple case of detecting an attribute change on a target node.
 
 ```javascript
 /* Step one is to create a MutationObserver instance */
 const observer = new MutationObserver(
   mutationList => {
-/* The observer takes a callback that will be called on each new batch of mutations.*/
+/* The constructor takes a callback that will be called on each new batch of mutations.*/
     for (let mutationRecord of mutationList) {
       if (mutationRecord.type === "attributes"){
         // ... do stuff
