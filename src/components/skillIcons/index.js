@@ -1,6 +1,7 @@
 // Icon Imports
+import React from 'react';
 import { FaStripe } from 'react-icons/fa';
-
+import { GrGatsbyjs } from 'react-icons/gr';
 import {
   DiGithubBadge as GithubIcon,
   DiNodejs,
@@ -16,6 +17,11 @@ import {
 } from 'react-icons/di';
 import { AiOutlineLink as DemoIcon } from 'react-icons/ai';
 
+import { Icon, InlineIcon } from '@iconify/react';
+import netlifyIcon from '@iconify/icons-logos/netlify';
+
+const NetlifyIcon = () => <Icon icon={netlifyIcon} />;
+
 export const skillIcons = {
   JavaScript: DiJavascript,
   CSS3: DiCss3,
@@ -28,4 +34,6 @@ export const skillIcons = {
   Stripe: FaStripe,
   Heroku: DiHeroku,
   Chrome: DiChrome,
+  Gatsby: GrGatsbyjs,
+  Netlify: NetlifyIcon,
 };

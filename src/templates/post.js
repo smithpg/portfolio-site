@@ -7,7 +7,7 @@ import Layout from 'components/layout';
 
 /*@jsx jsx */
 
-import { jsx, Box } from 'theme-ui';
+import { jsx, Box, Styled } from 'theme-ui';
 
 export default function Post({ data }) {
   const {
@@ -34,6 +34,7 @@ export default function Post({ data }) {
         ← Return to Home
       </Link>
       <Box sx={{ maxWidth: 700, m: 'auto' }}>
+        <Styled.h2>{title}</Styled.h2>
         <MDXRenderer>{body}</MDXRenderer>
       </Box>
     </Layout>

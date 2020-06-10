@@ -1,6 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { navigate } from '@reach/router';
+
 /** @jsx jsx */
 import { Container, Box, Card, Button, Flex, jsx, Styled } from 'theme-ui';
 import { motion } from 'framer-motion';
@@ -45,19 +46,20 @@ const ProjectCard = ({ project, ...props }) => {
         gridColumn: ['span 2', 'span 2', 'span 1'],
         display: 'grid',
         gridGap: [3, 1, 1],
-        gridTemplateRows: 'min-content min-content auto 50px',
-        // justifyContent: 'space-between',
-        // height: 400,
+        gridTemplateRows: [
+          'min-content min-content auto auto',
+          'min-content 50px auto 50px',
+        ],
       }}
     >
       <Styled.h3 sx={{ my: 2 }}>{project.title}</Styled.h3>
-      <div>
+      <Flex sx={{ '& path': { fill: 'black' }, alignItems: 'center' }}>
         {project.techUsed.map(techName => {
           const IconComponent = skillIcons[techName];
-          return <IconComponent key={techName} sx={{ mr: 1 }} />;
+          return <IconComponent alt={techName} key={techName} sx={{ mr: 1 }} />;
         })}
-      </div>
-      <Styled.p sx={{ fontStyle: 'italic' }}>{project.description}</Styled.p>
+      </Flex>
+      <Styled.p>{project.description}</Styled.p>
       <Flex
         sx={{
           flexDirection: ['column', 'row', 'row'],

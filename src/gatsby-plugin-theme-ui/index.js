@@ -1,3 +1,4 @@
+import nightOwl from '@theme-ui/prism/presets/night-owl';
 export default {
   colors: {
     text: '#000',
@@ -23,6 +24,7 @@ export default {
   cards: {
     primary: {
       padding: 25,
+      px: [25, null, 35],
       bg: 'white',
       boxShadow:
         '10px -2px 30px rgba(0,0,0,0.1), 0px 0px 10px -10px rgba(0,0,0,0.15)',
@@ -54,7 +56,7 @@ export default {
     },
 
     h3: {
-      mb: [2, 2, 4],
+      mb: 2,
       fontSize: [3, 4, 5],
       fontWeight: 'light',
     },
@@ -62,5 +64,12 @@ export default {
     p: { fontSize: [1, 2, 3] },
     ul: { mx: 0 },
     li: { p: 1, display: 'block' },
+    pre: {
+      ...nightOwl,
+      padding: [2, 3, 4],
+      fontSize: [1, 2],
+      whiteSpace: 'pre-wrap',
+      minWidth: '500px',
+    },
   },
 };

@@ -12,6 +12,18 @@ import Headshot from 'components/headshot';
 /** @jsx jsx */
 import { Container, Box, Card, Button, Flex, jsx, Styled } from 'theme-ui';
 
+const SectionTitle = ({ children }) => (
+  <Styled.h2
+    sx={{
+      textAlign: ['center', 'left', 'left'],
+      my: [5, 5, 5],
+      textTransform: ['uppercase', 'none', 'none'],
+    }}
+  >
+    {children}
+  </Styled.h2>
+);
+
 const Index = () => {
   return (
     <>
@@ -37,11 +49,11 @@ const Index = () => {
           </div>
         </Card>
         <Box>
-          <Styled.h2>Projects</Styled.h2>
+          <SectionTitle>Projects</SectionTitle>
           <ProjectsContainer />
         </Box>
         <Box>
-          <Styled.h2>Blog Posts</Styled.h2>
+          <SectionTitle>Blog Posts</SectionTitle>
           <BlogPostsContainer />
         </Box>
       </Layout>
