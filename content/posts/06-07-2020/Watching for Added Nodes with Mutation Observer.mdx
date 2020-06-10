@@ -1,0 +1,80 @@
+---
+
+title: Processing Added Nodes with Mutation Observer
+author: Patrick Smith
+date: '2020-05-19T16:52:34.893Z'
+
+---
+Earlier this week, I came across a slightly niche use case for MutationObserver that seemed like it might be worth sharing. First a quick refresher on the MutationObserver API. Let's look at a simple case of detecting an attribute change on a target node.
+
+```javascript
+/* Step one is to create a MutationObserver instance */
+const observer = new MutationObserver(
+  mutationList => {
+/* The observer takes a callback that will be called on each new batch of mutations.*/
+    for (let mutationRecord of mutationList) {
+      if (mutationRecord.type === "attributes"){
+        // ... do stuff
+      }
+    }
+  }
+)
+/*Finally, we call the observe method on the target node*/
+observer.observe(targetNode, {attributes: true})
+```
+This snippet will succeed in 'doing stuff' on every attribute change that occurs on our targetNode. If we wanted to also watch its descedants for the same sort of mutations, we could add **`subtree: true`** to the second argument of **`observe`**.
+
+Now, on to the more interesting problem.
+
+The situation was this: I needed to detect when a node meeting certain criteria was added as a descendent of an existing node. My first thought was to use something like the following:
+
+```javascript
+const observer = new MutationObserver(
+  mutationList => {
+      if (mutationRecord.addedNodes){
+        const nodeImLookingFor = addedNodes.find(
+          isTheNodeImLookingFor
+        )
+        // ... do stuff
+      }
+    }
+  }
+)
+observer.observe(targetNode, {childList: true, subtree: true})
+```
+My expectation was that by setting both the **`childList`** and **`subtree`** properties to true, I could get the mutation observer to detect the relevant node no matter where it was inserted in the subtree descending from **`targetNode`**. In other words, if **`targetNode`** was grandpa, I expected to detect the insertion of children, grandchildren, great-grandchildren, etc.
+
+As it turned out, this solution failed to account for an important case. While it could detect insertions at an arbitrary depth N in the subtree, it would only do so if they occured separately and subsequent to the insertion of the parent at depth N - 1. If a node A that already had a child node B was attached to **`targetNode`**, the mutationObserver callback would only ever see node A in **`mutationRecord.addedNodes`**.
+
+In the end, I had to modify the solution like so
+
+```javascript
+function findAmongDescendants(rootNode, isTarget){
+  let found = [];
+  function _find(node){
+    if (isTarget(node)) found.push(node);
+
+    if (node.children.length !== 0) {
+      Array.from(node.children).forEach(_find);
+    }
+  }
+
+  _find(rootNode);
+  return found;
+}
+
+const observer = new MutationObserver(
+  mutationList => {
+      if (mutationRecord.addedNodes){
+        const {addedNodes} = mutationRecord;
+
+        const nodeImLookingFor =  Array.from(
+          addedNodes
+        ).flatMap(findAmongDescendants)[0];
+        // ... do stuff
+      }
+    }
+  }
+)
+observer.observe(targetNode, {childList: true, subtree: true})
+```
